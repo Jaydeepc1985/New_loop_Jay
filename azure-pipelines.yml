@@ -10,7 +10,7 @@ pool:
   jay
 
 variables:
-  working-path: $(System.DefaultWorkingDirectory)/Dev
+  working-path: '$(System.DefaultWorkingDirectory)/Dev'
 
 
 
@@ -24,7 +24,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$workingpath'
+    workingDirectory: '$working-path'
     backendServiceArm: 'jay'
     backendAzureRmResourceGroupName: 'Jaydeeprg'
     backendAzureRmStorageAccountName: 'jaydeepstg'
