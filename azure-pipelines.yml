@@ -30,4 +30,4 @@ steps:
     backendAzureRmStorageAccountName: 'jaydeepstg'
     backendAzureRmContainerName: 'jaydeepcnt'
     backendAzureRmKey: 'terraform.tfstate'
-    displayName: "Terraform init"
+  displayName: 'Terraform init'
