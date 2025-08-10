@@ -24,7 +24,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$working-path'
+    workingDirectory: '$(working-path)'
     backendServiceArm: 'jay'
     backendAzureRmResourceGroupName: 'Jaydeeprg'
     backendAzureRmStorageAccountName: 'jaydeepstg'
