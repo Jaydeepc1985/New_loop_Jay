@@ -11,9 +11,6 @@ pool:
 variables:
   working-path: '$(System.DefaultWorkingDirectory)/Dev'
 
-
-
-
 steps:
 - task: TerraformInstaller@1
   inputs:
@@ -25,8 +22,22 @@ steps:
     command: 'init'
     workingDirectory: '$(working-path)'
     backendServiceArm: 'jay'
-    backendAzureRmResourceGroupName: 'Jaydeeprg'
-    backendAzureRmStorageAccountName: 'jaydeepstg'
-    backendAzureRmContainerName: 'jaydeepcnt'
+    backendAzureRmResourceGroupName: 'jay_rg'
+    backendAzureRmStorageAccountName: 'jaystg'
+    backendAzureRmContainerName: 'jaycnt'
     backendAzureRmKey: 'terraform.tfstate'
-  displayName: 'Terraform init'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(working-path)'
+    environmentServiceNameAzureRM: 'jay'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(working-path)'
+    commandOptions: '-auto-approve'
+    environmentServiceNameAzureRM: 'jay'
